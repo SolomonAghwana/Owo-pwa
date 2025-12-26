@@ -12,8 +12,7 @@ console.log('🚀 TaxNaija initializing...');
 // ============================================
 
 // 🔑 PASTE YOUR CLIENT ID HERE (from Google Cloud Console)
-const GOOGLE_CLIENT_ID = 'YOUR_CLIENT_ID_HERE.apps.googleusercontent.com';
-
+const GOOGLE_CLIENT_ID = '107560824332-r11ubimm7nfadp6g8s3q9r8r4ghomp9s.apps.googleusercontent.com';
 // ⚠️ IMPORTANT: Replace 'YOUR_CLIENT_ID_HERE' with your actual Client ID!
 // Example: '123456789-abcdefg.apps.googleusercontent.com'
 
