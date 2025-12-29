@@ -1,5 +1,5 @@
-console.log('🚀 Owo starting...');
-const GOOGLE_CLIENT_ID = '107560824332-r11ubimm7nfadp6g8s3q9r8r4ghomp9s.apps.googleusercontent.com';
+console.log('🚀 TaxNaija starting...');
+const GOOGLE_CLIENT_ID = 'YOUR_CLIENT_ID_HERE.apps.googleusercontent.com';
 let currentUser = null;
 const DB = {save: function(key, data) {try {localStorage.setItem(key, JSON.stringify(data)); console.log('✅ Saved ' + key); return true;} catch (error) {console.error('❌ Save failed:', error); return false;}}, load: function(key, defaultValue) {if (defaultValue === undefined) defaultValue = null; try {const data = localStorage.getItem(key); if (data === null) return defaultValue; return JSON.parse(data);} catch (error) {console.error('❌ Load failed:', error); return defaultValue;}}, delete: function(key) {localStorage.removeItem(key); console.log('🗑️ Deleted ' + key);}};
 const AppState = {currentPage: 'dashboard', transactions: [], categories: [{id: 'business', name: 'Business', icon: '💼', color: '#3b82f6', taxRule: 'deductible'}, {id: 'personal', name: 'Personal', icon: '👤', color: '#8b5cf6', taxRule: 'neutral'}, {id: 'utilities', name: 'Utilities', icon: '💡', color: '#f59e0b', taxRule: 'deductible'}, {id: 'transport', name: 'Transport', icon: '🚗', color: '#10b981', taxRule: 'deductible'}, {id: 'food', name: 'Food', icon: '🍽️', color: '#f97316', taxRule: 'neutral'}, {id: 'healthcare', name: 'Healthcare', icon: '⚕️', color: '#ef4444', taxRule: 'deductible'}], isPremium: false, trialEndsAt: null};
@@ -24,4 +24,4 @@ function SettingsPage() {var user = currentUser; var html = '<div class="min-h-s
 function renderApp() {if (!currentUser) {showLoginScreen(); return;} var mainApp = document.getElementById('mainApp'); var pageContent = ''; if (AppState.currentPage === 'dashboard') {pageContent = DashboardPage();} else if (AppState.currentPage === 'settings') {pageContent = SettingsPage();} else {pageContent = '<div class="p-20 text-center text-gray-600">Coming on Day 2-5!</div>';} mainApp.innerHTML = pageContent + BottomNav();}
 function initializeAppData() {console.log('📊 Loading saved data...'); var savedTransactions = DB.load('transactions', []); if (savedTransactions.length > 0) {AppState.transactions = savedTransactions; console.log('✅ Loaded ' + savedTransactions.length + ' transactions');} AppState.isPremium = DB.load('isPremium', false); console.log('✅ App data initialized');}
 window.onload = function() {console.log('📱 Page loaded, starting app...'); initializeAppData(); if (typeof google !== 'undefined') {initGoogleSignIn();} else {console.log('⏳ Waiting for Google library...'); setTimeout(initGoogleSignIn, 1000);}};
-console.log('✅ Owo app.js loaded!');
+console.log('✅ TaxNaija app.js loaded!');
